@@ -21,8 +21,7 @@ export default function ProjectsPage() {
             Projects
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            A deeper look at the systems, tools, and research I have built. Click any
-            project to expand it for details, technologies, and external links.
+            A more in-depth look into other projects I have been working on. Click any project for more information!
           </p>
           <div className="mt-6 h-px w-full bg-border" />
         </div>
