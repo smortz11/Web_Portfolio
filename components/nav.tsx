@@ -1,9 +1,16 @@
 "use client"
 
 import { useState } from "react"
+import { usePathname } from "next/navigation"
+import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
-const links = [
+interface NavLink {
+  label: string
+  href: string
+}
+
+const homeLinks: NavLink[] = [
   { label: "About", href: "#about" },
   { label: "Progress", href: "#progress" },
   { label: "Plans", href: "#plans" },
@@ -12,30 +19,55 @@ const links = [
   { label: "Skills", href: "#skills" },
 ]
 
+const globalLinks: NavLink[] = [
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+]
+
 export function Nav() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === "/"
+
+  const links = isHome ? homeLinks : globalLinks
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        <a
-          href="#"
+        <Link
+          href="/"
           className="font-mono text-xs font-medium tracking-[0.15em] text-primary uppercase"
         >
           A.Swartz
-        </a>
+        </Link>
 
         {/* Desktop */}
         <div className="hidden items-center gap-6 md:flex">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-primary"
-            >
-              {link.label}
-            </a>
-          ))}
+          {links.map((link) => {
+            const isAnchor = link.href.startsWith("#")
+            if (isAnchor) {
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {link.label}
+                </a>
+              )
+            }
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`font-mono text-[10px] uppercase tracking-[0.15em] transition-colors hover:text-primary ${
+                  pathname === link.href ? "text-primary" : "text-muted-foreground"
+                }`}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
         </div>
 
         {/* Mobile toggle */}
@@ -53,16 +85,33 @@ export function Nav() {
       {open && (
         <div className="border-t border-border bg-background px-6 py-4 md:hidden">
           <div className="grid gap-3">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-primary"
-              >
-                {link.label}
-              </a>
-            ))}
+            {links.map((link) => {
+              const isAnchor = link.href.startsWith("#")
+              if (isAnchor) {
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                  </a>
+                )
+              }
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`font-mono text-xs uppercase tracking-[0.15em] transition-colors hover:text-primary ${
+                    pathname === link.href ? "text-primary" : "text-muted-foreground"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
           </div>
         </div>
       )}
