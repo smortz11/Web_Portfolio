@@ -40,7 +40,6 @@ const projects: Project[] = [
       "Cisco ASA",
       "Cisco Catalyst",
       "Ubuntu Server",
-      "pfSense",
     ],
     summary:
       "A full-stack virtualized environment for hands-on security testing, SIEM demonstration, and network segmentation.",
@@ -109,7 +108,7 @@ const projects: Project[] = [
   {
     id: "portfolio",
     title: "Personal Portfolio Website",
-    subtitle: "This site -- built with Next.js and deployed on Vercel",
+    subtitle: "This site, built with Next.js and deployed on Vercel",
     date: "2026",
     status: "ongoing",
     tech: [
@@ -153,11 +152,10 @@ export function ProjectsList() {
                   {project.title}
                 </h2>
                 <span
-                  className={`font-mono text-[9px] uppercase tracking-widest px-1.5 py-0.5 border ${
-                    project.status === "ongoing"
+                  className={`font-mono text-[9px] uppercase tracking-widest px-1.5 py-0.5 border ${project.status === "ongoing"
                       ? "border-primary/40 text-primary/80"
                       : "border-border text-muted-foreground"
-                  }`}
+                    }`}
                 >
                   {project.status === "ongoing" ? "Ongoing" : project.date}
                 </span>
