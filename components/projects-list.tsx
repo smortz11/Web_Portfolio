@@ -52,6 +52,34 @@ const projects: Project[] = [
       "Environment is actively used to simulate real-world attack scenarios and validate defense configurations.",
     ],
   },
+    {
+    id: "ncl-writeups",
+    title: "NCL Writeups",
+    subtitle: "An in-depth collection of writeups for National Cyber League challenges",
+    date: "Sep 2025",
+    status: "complete",
+    tech: [
+      "Python",
+      "Bash",
+      "Log Analysis",
+      "OSINT",
+      "Wireshark",
+    ],
+    summary:
+      "A comprehensive collection of NCL challenges, covering all domains (forensics, web, crypto, etc.) with detailed writeups and methodologies.",
+    details: [
+      "Constructed tailored scripts to target specific RSA challenges.",
+      "Detailed methodologies for each challenge, aiding less experienced students in understanding complex concepts.",
+      "Organized writeups by domain, providing ease of navigation and reference for future NCL participants.",
+    ],
+     links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/smortz11/NCL-Writeups",
+        type: "github",
+      },
+    ],
+  },
   {
     id: "omg-mitigation",
     title: "O.MG Mitigation",
