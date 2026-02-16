@@ -1,10 +1,12 @@
-import { ExternalLink } from "lucide-react"
+import Link from "next/link"
+import { ExternalLink, ArrowRight } from "lucide-react"
 
 interface Project {
   title: string
   tech: string
   description: string[]
   date: string
+  link?: string
 }
 
 const projects: Project[] = [
@@ -38,6 +40,7 @@ const projects: Project[] = [
       "Authored an IEEE-published paper on system design and implementation.",
     ],
     date: "Mar 2025",
+    link: "https://ieeexplore.ieee.org/document/10971467",
   },
 ]
 
@@ -54,39 +57,65 @@ export function ProjectsSection() {
         <div className="h-px flex-1 bg-border" />
       </div>
       <div className="grid gap-4">
-        {projects.map((project) => (
-          <div
-            key={project.title}
-            className="group border border-border p-5 transition-colors hover:border-primary/40"
-          >
-            <div className="flex flex-wrap items-start justify-between gap-3">
-              <div>
-                <h3 className="flex items-center gap-2 text-sm font-medium text-foreground">
-                  {project.title}
-                  <ExternalLink className="h-3 w-3 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
-                </h3>
-                <p className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-primary/70">
-                  {project.tech}
-                </p>
+        {projects.map((project) => {
+          const Wrapper = project.link ? "a" : "div"
+          const wrapperProps = project.link
+            ? { href: project.link, target: "_blank", rel: "noopener noreferrer" }
+            : {}
+
+          return (
+            <Wrapper
+              key={project.title}
+              {...wrapperProps}
+              className="group block border border-border p-5 transition-colors hover:border-primary/40"
+            >
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h3 className="flex items-center gap-2 text-sm font-medium text-foreground">
+                    {project.title}
+                    {project.link && (
+                      <ExternalLink className="h-3 w-3 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                    )}
+                  </h3>
+                  <p className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-primary/70">
+                    {project.tech}
+                  </p>
+                </div>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  {project.date}
+                </span>
               </div>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                {project.date}
-              </span>
-            </div>
-            <ul className="mt-3 grid gap-1">
-              {project.description.map((d) => (
-                <li
-                  key={d}
-                  className="flex items-start gap-2 text-xs leading-relaxed text-muted-foreground"
-                >
-                  <span className="mt-1.5 h-px w-2 shrink-0 bg-muted-foreground/50" />
-                  {d}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+              <ul className="mt-3 grid gap-1">
+                {project.description.map((d) => (
+                  <li
+                    key={d}
+                    className="flex items-start gap-2 text-xs leading-relaxed text-muted-foreground"
+                  >
+                    <span className="mt-1.5 h-px w-2 shrink-0 bg-muted-foreground/50" />
+                    {d}
+                  </li>
+                ))}
+              </ul>
+              {project.link && (
+                <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-primary/70 opacity-0 transition-opacity group-hover:opacity-100">
+                  View IEEE Publication
+                </p>
+              )}
+            </Wrapper>
+          )
+        })}
       </div>
+
+      {/* Link to full projects page */}
+      <Link
+        href="/projects"
+        className="group mt-6 flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-primary"
+      >
+        <span className="border-b border-transparent group-hover:border-primary font-mono uppercase tracking-widest">
+          View all projects
+        </span>
+        <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+      </Link>
     </section>
   )
 }
