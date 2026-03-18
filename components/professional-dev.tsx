@@ -21,7 +21,7 @@ const items: DevItem[] = [
       "Participated in Collegiate Cyber Defense Competition simulating enterprise defense under live attacks.",
       "Applied SIEM, log analysis, and incident response techniques in competitive environments.",
       "Hardened routers, firewalls, and Linux servers against red team attacks.",
-      "Placed second in qualifier CCDC, advancing to wildcard round on 2/21/26!"
+      "Placed second in qualifier CCDC, advanced to wildcard round on 2/21/26!"
     ],
   },
   {
