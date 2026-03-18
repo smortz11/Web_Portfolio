@@ -32,7 +32,7 @@ export function HeroSection() {
         <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
           CS and Mathematics double major at Indiana University Southeast with a
           4.0 GPA. Focused on cybersecurity, network defense, and building
-          secure systems. Published IEEE author and Top 4% NCL competitor.
+          secure systems. Published IEEE author (x2) and Top 4% NCL competitor.
         </p>
 
         {/* Contact links */}

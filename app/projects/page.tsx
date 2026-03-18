@@ -6,7 +6,7 @@ import { ProjectsList } from "@/components/projects-list"
 export const metadata: Metadata = {
   title: "Projects | Andrew Swartz",
   description:
-    "Cybersecurity and computer science projects by Andrew Swartz, including published IEEE research.",
+    "Cybersecurity and computer science projects by Andrew Swartz, including published IEEE research (x2).",
 }
 
 export default function ProjectsPage() {
