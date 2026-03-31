@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import { RefreshCw, Server, Container, Cpu, HardDrive, MemoryStick, Clock, AlertCircle } from "lucide-react"
+import { RefreshCw, Server, Container, Cpu, HardDrive, Clock, AlertCircle, Gauge } from "lucide-react"
 
 // ─────────────────────────────────────────────
 // Types
@@ -146,7 +146,7 @@ function NodeCard({ node }: { node: NodeData }) {
         <>
           <div className="space-y-3">
             <CpuBar value={node.cpu} />
-            <MetricBar label="Memory" value={node.memory.used} max={node.memory.total} icon={MemoryStick} />
+            <MetricBar label="Memory" value={node.memory.used} max={node.memory.total} icon={Gauge} />
             <MetricBar label="Disk" value={node.disk.used} max={node.disk.total} icon={HardDrive} />
           </div>
 
