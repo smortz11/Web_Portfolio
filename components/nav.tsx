@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Server } from "lucide-react"
 
 interface NavLink {
   label: string
@@ -68,6 +68,23 @@ export function Nav() {
               </Link>
             )
           })}
+
+          {/* Homelab Button - subtle but stands out */}
+          <Link
+            href="/homelab"
+            className={`group flex items-center gap-1.5 border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] transition-all ${
+              pathname === "/homelab"
+                ? "border-primary bg-primary/10 text-primary"
+                : "border-border text-muted-foreground hover:border-primary/50 hover:text-primary"
+            }`}
+          >
+            <Server className="h-3 w-3" />
+            <span>Homelab</span>
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            </span>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -112,6 +129,22 @@ export function Nav() {
                 </Link>
               )
             })}
+            
+            {/* Homelab in mobile menu */}
+            <Link
+              href="/homelab"
+              onClick={() => setOpen(false)}
+              className={`flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] transition-colors hover:text-primary ${
+                pathname === "/homelab" ? "text-primary" : "text-muted-foreground"
+              }`}
+            >
+              <Server className="h-3 w-3" />
+              <span>Homelab</span>
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              </span>
+            </Link>
           </div>
         </div>
       )}
