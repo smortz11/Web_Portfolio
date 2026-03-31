@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { Nav } from "@/components/nav"
-import { GeometricBG } from "@/components/geometric-bg"
+import { GeometricBackground } from "@/components/geometric-bg"
 import { HomelabDashboard } from "@/components/homelab-dashboard"
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function HomelabPage() {
   return (
     <>
-      <GeometricBG />
+      <GeometricBackground />
       <Nav />
       <main className="relative z-10 mx-auto max-w-6xl px-6 pt-24 pb-16">
         {/* Header */}
