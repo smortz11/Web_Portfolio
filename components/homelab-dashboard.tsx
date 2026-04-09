@@ -31,6 +31,16 @@ interface GuestData {
   uptime: number
 }
 
+interface ServiceStatus {
+  id: number
+  name: string
+  type: string
+  status: "up" | "down" | "unknown"
+  ping: number | null
+  uptime24h: number
+  recentBeats: { time: string; status: number; ping: number }[]
+}
+
 // ─────────────────────────────────────────────
 // Config
 // ─────────────────────────────────────────────
@@ -216,6 +226,48 @@ function GuestRow({ guest }: { guest: GuestData }) {
   )
 }
 
+function ServiceRow({ service }: { service: ServiceStatus }) {
+  const isUp = service.status === "up"
+  const isUnknown = service.status === "unknown"
+  const uptimePct = Math.round(service.uptime24h * 100)
+
+  return (
+    <tr className="border-b border-border transition-colors hover:bg-card/50">
+      <td className="py-3 px-4">
+        <div className="text-sm font-medium text-foreground">{service.name}</div>
+        <div className="text-[10px] text-muted-foreground uppercase tracking-wider">{service.type}</div>
+      </td>
+      <td className="py-3 px-4">
+        <span className={`flex items-center gap-1.5 text-[11px] uppercase tracking-wider ${
+          isUnknown ? "text-muted-foreground" : isUp ? "text-emerald-500" : "text-red-500"
+        }`}>
+          <span className={`h-1.5 w-1.5 rounded-full ${
+            isUnknown ? "bg-muted-foreground" : isUp ? "bg-emerald-500" : "bg-red-500"
+          }`} />
+          {service.status}
+        </span>
+      </td>
+      <td className="py-3 px-4 text-[11px] text-muted-foreground">
+        {service.ping !== null ? `${service.ping % 1 === 0 ? service.ping : service.ping.toFixed(2)} ms` : "—"}
+      </td>
+      <td className="py-3 px-4">
+        <div className="flex items-center gap-2">
+          <div className="flex gap-px">
+            {service.recentBeats.map((beat, i) => (
+              <div
+                key={i}
+                title={`${beat.time} — ${beat.status === 1 ? "up" : "down"}`}
+                className={`w-1 h-4 rounded-sm ${beat.status === 1 ? "bg-emerald-500/70" : "bg-red-500/70"}`}
+              />
+            ))}
+          </div>
+          <span className="text-[10px] text-muted-foreground">{uptimePct}%</span>
+        </div>
+      </td>
+    </tr>
+  )
+}
+
 // ─────────────────────────────────────────────
 // Main Dashboard
 // ─────────────────────────────────────────────
@@ -223,21 +275,28 @@ function GuestRow({ guest }: { guest: GuestData }) {
 export function HomelabDashboard() {
   const [nodes, setNodes] = useState<NodeData[]>([])
   const [guests, setGuests] = useState<GuestData[]>([])
+  const [services, setServices] = useState<ServiceStatus[]>([])
   const [lastUpdated, setLastUpdated] = useState<string>("—")
   const [isLoading, setIsLoading] = useState(true)
   const [configError, setConfigError] = useState(false)
+  const [kumaError, setKumaError] = useState(false)
 
   const fetchData = useCallback(async () => {
     setIsLoading(true)
     
     try {
-      const response = await fetch("/api/homelab")
+      const [response, kumaResponse] = await Promise.all([
+        fetch("/api/homelab"),
+        fetch("/api/kuma"),
+      ])
+
       if (!response.ok) {
         throw new Error("Failed to fetch data")
       }
-      
+
       const data = await response.json()
-      
+      const kumaData = await kumaResponse.json()
+
       if (data.error) {
         setConfigError(true)
         setNodes(NODES.map(name => ({
@@ -257,7 +316,15 @@ export function HomelabDashboard() {
         setNodes(data.nodes || [])
         setGuests(data.guests || [])
       }
-      
+
+      if (kumaData.error) {
+        setKumaError(true)
+        setServices([])
+      } else {
+        setKumaError(false)
+        setServices(kumaData.services || [])
+      }
+
       setLastUpdated(new Date().toLocaleTimeString([], { 
         hour: "2-digit", 
         minute: "2-digit", 
@@ -284,7 +351,6 @@ export function HomelabDashboard() {
 
   useEffect(() => {
     fetchData()
-    // Auto-refresh every 30 seconds
     const interval = setInterval(fetchData, 30000)
     return () => clearInterval(interval)
   }, [fetchData])
@@ -366,6 +432,44 @@ export function HomelabDashboard() {
         ) : (
           <div className="border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
             {isLoading ? "Loading guests..." : "No virtual machines or containers found"}
+          </div>
+        )}
+      </section>
+
+      {/* Service Health */}
+      <section>
+        <div className="flex items-center gap-4 mb-4">
+          <h2 className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+            Service Health
+          </h2>
+          <div className="h-px flex-1 bg-border" />
+        </div>
+
+        {kumaError ? (
+          <div className="border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
+            Uptime Kuma unavailable
+          </div>
+        ) : services.length > 0 ? (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="border-b border-primary/30">
+                  <th className="py-2 px-4 font-mono text-[9px] uppercase tracking-[0.2em] text-primary/70">Service</th>
+                  <th className="py-2 px-4 font-mono text-[9px] uppercase tracking-[0.2em] text-primary/70">Status</th>
+                  <th className="py-2 px-4 font-mono text-[9px] uppercase tracking-[0.2em] text-primary/70">Ping</th>
+                  <th className="py-2 px-4 font-mono text-[9px] uppercase tracking-[0.2em] text-primary/70">24h History</th>
+                </tr>
+              </thead>
+              <tbody>
+                {services.map((service) => (
+                  <ServiceRow key={service.id} service={service} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
+            {isLoading ? "Loading services..." : "No services found"}
           </div>
         )}
       </section>
