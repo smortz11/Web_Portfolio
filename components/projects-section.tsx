@@ -46,6 +46,10 @@ const projects: Project[] = [
   },
 ]
 
+function isInternal(href: string) {
+  return href.startsWith("/")
+}
+
 export function ProjectsSection() {
   return (
     <section aria-labelledby="projects-heading">
@@ -60,23 +64,20 @@ export function ProjectsSection() {
       </div>
       <div className="grid gap-4">
         {projects.map((project) => {
-          const Wrapper = project.link ? "a" : "div"
-          const wrapperProps = project.link
-            ? { href: project.link, target: "_blank", rel: "noopener noreferrer" }
-            : {}
+          const classes =
+            "group block border border-border p-5 transition-colors hover:border-primary/40"
 
-          return (
-            <Wrapper
-              key={project.title}
-              {...wrapperProps}
-              className="group block border border-border p-5 transition-colors hover:border-primary/40"
-            >
+          const content = (
+            <>
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <h3 className="flex items-center gap-2 text-sm font-medium text-foreground">
                     {project.title}
-                    {project.link && (
+                    {project.link && !isInternal(project.link) && (
                       <ExternalLink className="h-3 w-3 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                    )}
+                    {project.link && isInternal(project.link) && (
+                      <ArrowRight className="h-3 w-3 text-muted-foreground opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-0.5" />
                     )}
                   </h3>
                   <p className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-primary/70">
@@ -98,12 +99,45 @@ export function ProjectsSection() {
                   </li>
                 ))}
               </ul>
-              {project.link && (
+              {project.link && !isInternal(project.link) && (
                 <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-primary/70 opacity-0 transition-opacity group-hover:opacity-100">
                   View IEEE Publication
                 </p>
               )}
-            </Wrapper>
+              {project.link && isInternal(project.link) && (
+                <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-primary/70 opacity-0 transition-opacity group-hover:opacity-100">
+                  View Live Dashboard
+                </p>
+              )}
+            </>
+          )
+
+          if (project.link && isInternal(project.link)) {
+            return (
+              <Link key={project.title} href={project.link} className={classes}>
+                {content}
+              </Link>
+            )
+          }
+
+          if (project.link) {
+            return (
+              <a
+                key={project.title}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes}
+              >
+                {content}
+              </a>
+            )
+          }
+
+          return (
+            <div key={project.title} className={classes}>
+              {content}
+            </div>
           )
         })}
       </div>
