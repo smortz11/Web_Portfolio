@@ -1,7 +1,6 @@
 import React from "react"
 import Image from "next/image"
 import { Mail, Linkedin, Github, MapPin } from "lucide-react"
-
 export function HeroSection() {
   return (
     <section className="flex flex-col gap-8 md:flex-row md:items-start md:gap-12">
@@ -20,21 +19,21 @@ export function HeroSection() {
         <div className="absolute -left-1.5 -top-1.5 h-4 w-4 border-l border-t border-primary" />
         <div className="absolute -bottom-1.5 -right-1.5 h-4 w-4 border-b border-r border-primary" />
       </div>
-
       {/* Info */}
       <div className="flex-1">
         <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl text-balance">
           Andrew Swartz
         </h1>
         <p className="mt-2 font-mono text-sm text-primary tracking-wide">
-          Computer Science & Mathematics
+          Cybersecurity & Computer Science
         </p>
         <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          CS and Mathematics double major at Indiana University Southeast with a
-          4.0 GPA. Focused on cybersecurity, network defense, and building
-          secure systems. Published IEEE author (x2) and Top 4% NCL competitor.
+          B.S. in Computer Science and Mathematics from Indiana University
+          Southeast (4.0 GPA). Currently pursuing a Master{"'"}s in Cybersecurity
+          at Georgia Tech. Focused on network defense, secure systems, and
+          incident response. Published IEEE author (x2) and Top 1% NCL
+          competitor.
         </p>
-
         {/* Contact links */}
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <ContactLink
@@ -61,7 +60,6 @@ export function HeroSection() {
     </section>
   )
 }
-
 function ContactLink({
   href,
   icon,

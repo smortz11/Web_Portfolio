@@ -5,17 +5,27 @@ interface ExperienceItem {
   period: string
   bullets: string[]
 }
-
 const experiences: ExperienceItem[] = [
+  {
+    role: "Junior Network Engineer",
+    company: "Volta Inc",
+    location: "Remote",
+    period: "May 2026 -- Present",
+    bullets: [
+      "Install, configure, and troubleshoot network hardware and software for optimal performance.",
+      "Prioritize ticket queues to ensure timely resolution of client issues in alignment with SLAs.",
+      "Optimize network security measures while maintaining efficient communication links.",
+    ],
+  },
   {
     role: "Computer Science Tutor",
     company: "Indiana University Southeast",
     location: "New Albany, IN",
-    period: "Aug 2025 -- Present",
+    period: "Aug 2025 -- Apr 2026",
     bullets: [
-      "Provide one-on-one and group tutoring for students in programming and cybersecurity courses.",
-      "Assist with lab exercises, debugging, and problem-solving to reinforce technical concepts.",
-      "Support student learning by explaining complex topics clearly and offering study strategies.",
+      "Provided one-on-one and group tutoring for students in programming and cybersecurity courses.",
+      "Assisted with lab exercises, debugging, and problem-solving to reinforce technical concepts.",
+      "Supported student learning by explaining complex topics clearly and offering study strategies.",
     ],
   },
   {
@@ -29,7 +39,6 @@ const experiences: ExperienceItem[] = [
     ],
   },
 ]
-
 export function ExperienceSection() {
   return (
     <section aria-labelledby="experience-heading">

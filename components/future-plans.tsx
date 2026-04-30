@@ -1,38 +1,35 @@
 import { ArrowRight } from "lucide-react"
-
 interface Plan {
   title: string
   description: string
   timeline: string
 }
-
 const plans: Plan[] = [
   {
     title: "Complete CCNA Certification",
     description:
-      "Networking fundamentals is a prioritiy in both, blue and red team operations. The knowledge is extremely valuable!",
+      "Networking fundamentals is a priority in both blue and red team operations. The knowledge is extremely valuable!",
     timeline: "2026",
   },
   {
-    title: "Graduate from IU Southeast",
+    title: "Earn a Fortinet Certification",
     description:
-      "Earning dual B.S. degrees in Computer Science and Mathematics with a 4.0 GPA.",
-    timeline: "May 2026",
+      "Pursuing Fortinet NSE certification to deepen expertise in enterprise firewall management, threat protection, and secure network architecture.",
+    timeline: "2026",
   },
   {
-    title: "Pursue Entry Security Role",
+    title: "Graduate from Georgia Tech",
     description:
-      "Targeting a full-time cybersecurity position focused on network defense, incident response, or SOC operations.",
-    timeline: "Summer 2026",
+      "Completing an M.S. in Cybersecurity at Georgia Tech, building on a strong undergraduate foundation in CS and Mathematics.",
+    timeline: "TBD",
   },
   {
-    title: "Expand Homelab Infrastructure",
+    title: "Build Enterprise Network Lab",
     description:
-      "Adding more enterprise-grade tooling like ELK Stack, pfSense, with an ability to red team myself and practice blue team skills.",
+      "Designing and deploying a multi-vendor routing and switching lab with OSPF, BGP, and VLANs to sharpen real-world network engineering skills.",
     timeline: "Ongoing",
   },
 ]
-
 export function FuturePlans() {
   return (
     <section aria-labelledby="plans-heading">

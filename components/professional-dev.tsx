@@ -3,7 +3,6 @@ interface DevItem {
   period: string
   bullets: string[]
 }
-
 const items: DevItem[] = [
   {
     title: "Cyber Competitions: NCL",
@@ -11,7 +10,7 @@ const items: DevItem[] = [
     bullets: [
       "Competed in National Cyber League challenges covering OSI, Cryptography, Password Cracking, Log Analysis, Network Traffic Analysis, etc.",
       "Ranked in Top 4% National Cyber League -- Fall 2025.",
-      "Currently awaiting the Spring 2026 season!"
+      "Ranked Top 1% individual game and Top 1% team game -- Spring 2026.",
     ],
   },
   {
@@ -21,7 +20,7 @@ const items: DevItem[] = [
       "Participated in Collegiate Cyber Defense Competition simulating enterprise defense under live attacks.",
       "Applied SIEM, log analysis, and incident response techniques in competitive environments.",
       "Hardened routers, firewalls, and Linux servers against red team attacks.",
-      "Placed second in qualifier CCDC, advanced to wildcard round."
+      "Placed second in qualifier CCDC, advanced to wildcard round.",
     ],
   },
   {
@@ -41,7 +40,6 @@ const items: DevItem[] = [
     ],
   },
 ]
-
 export function ProfessionalDev() {
   return (
     <section aria-labelledby="profdev-heading">

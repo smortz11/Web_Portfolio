@@ -30,6 +30,7 @@ const projects: Project[] = [
       "Authored an IEEE paper analyzing potential threat actors and possible intrusions mitigated.",
     ],
     date: "Feb 2026",
+    link: "https://ieeexplore.ieee.org/document/11476152",
   },
   {
     title: "Facial Recognition & 2FA on Raspberry Pi",
