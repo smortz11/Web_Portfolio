@@ -8,7 +8,7 @@ export function HeroSection() {
       <div className="relative shrink-0">
         <div className="relative h-40 w-40 overflow-hidden border border-border md:h-48 md:w-48">
           <Image
-            src="headshot.jpg"
+            src="/headshot.jpg"
             alt="Andrew Swartz"
             fill
             className="object-cover"
