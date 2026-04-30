@@ -9,7 +9,7 @@ const experiences: ExperienceItem[] = [
   {
     role: "Junior Network Engineer",
     company: "Volta Inc",
-    location: "Remote",
+    location: "Louisville, KY",
     period: "May 2026 -- Present",
     bullets: [
       "Install, configure, and troubleshoot network hardware and software for optimal performance.",
@@ -21,7 +21,7 @@ const experiences: ExperienceItem[] = [
     role: "Computer Science Tutor",
     company: "Indiana University Southeast",
     location: "New Albany, IN",
-    period: "Aug 2025 -- Apr 2026",
+    period: "Aug 2025 -- May 2026",
     bullets: [
       "Provided one-on-one and group tutoring for students in programming and cybersecurity courses.",
       "Assisted with lab exercises, debugging, and problem-solving to reinforce technical concepts.",
