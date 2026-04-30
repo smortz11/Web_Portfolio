@@ -20,6 +20,7 @@ const projects: Project[] = [
       "Hosted secure website and configured Pi-hole for network-wide ad and malware blocking.",
     ],
     date: "Ongoing",
+    link: "/homelab",
   },
   {
     title: "O.MG Mitigation",
