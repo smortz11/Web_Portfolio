@@ -21,8 +21,8 @@ import { GeometricBackground } from "@/components/geometric-bg"
 const certifications = [
   { label: "CompTIA Security+", value: 100, subtitle: "Earned Jun 2025" },
   { label: "CompTIA CySA+", value: 100, subtitle: "Earned Sep 2025" },
-  { label: "ISC2 CC", value: 100, subtitle: "Earned Jan 2026" },
-  { label: "Cisco CCNA", value: 55, subtitle: "In Progress" },
+  { label: "Cisco CCNA", value: 100, subtitle: "Earned Aug 2026" },
+  { label: "Fortinet NSE 4", value: 25, subtitle: "In Progress" },
 ]
 
 function Divider() {

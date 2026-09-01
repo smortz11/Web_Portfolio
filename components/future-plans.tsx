@@ -6,13 +6,7 @@ interface Plan {
 }
 const plans: Plan[] = [
   {
-    title: "Complete CCNA Certification",
-    description:
-      "Networking fundamentals is a priority in both blue and red team operations. The knowledge is extremely valuable!",
-    timeline: "2026",
-  },
-  {
-    title: "Earn a Fortinet Certification",
+    title: "Earn a Fortinet NSE 4",
     description:
       "Pursuing Fortinet NSE certification to deepen expertise in enterprise firewall management, threat protection, and secure network architecture.",
     timeline: "2026",
@@ -21,12 +15,18 @@ const plans: Plan[] = [
     title: "Graduate from Georgia Tech",
     description:
       "Completing an M.S. in Cybersecurity at Georgia Tech, building on a strong undergraduate foundation in CS and Mathematics.",
-    timeline: "TBD",
+    timeline: "2028",
   },
   {
-    title: "Build Enterprise Network Lab",
+    title: "Earn the Cisco CCNP",
     description:
-      "Designing and deploying a multi-vendor routing and switching lab with OSPF, BGP, and VLANs to sharpen real-world network engineering skills.",
+      "The CCNP is the next logical step for CCNA holders and network engineers. This will teach me how to be a more thorough network architect.",
+    timeline: "2027",
+  },
+  {
+    title: "Develop Palo Alto Experience",
+    description:
+      "My job has given me extensive Cisco and Fortinet exposure, I am taking the incentive to learn more about Palo with a lab kit.",
     timeline: "Ongoing",
   },
 ]
