@@ -1,7 +1,12 @@
 {
   "title": "CCNA Study Materials",
   "slug": "CCNA_Study_Materials",
-  "description": "Networking notes, labs, and references from my CCNA studies.",
+  "description": "Certification resource recommendations, my own Anki deck I used to study, and a PacketTracer lab to get you ready for the big day.",
   "tags": ["Cisco", "Networking"],
+  "summary": "The CCNA is a difficult exam that took me roughly a year to earn. It is a difficult, but extremely valuable certification. For my studies, I primarily used Neil Anderson's CCNA course along with the flashcards he provides. Alongside that, I am linking a free course on YouTube that I watched sometimes. In the below resources, I have provided my own Anki deck covering command syntax as well as a PacketTracer lab that I completed several times prior to my exam.",
+  "recommendedResources": [
+    { "name": "Neil Anderson's CCNA Course", "url": "https://www.flackbox.com/cisco-ccna-course" },
+    { "name": "Jeremy's IT Lab", "url": "https://www.youtube.com/watch?v=H8W9oMNSuwo&list=PLxbwE86jKRgMpuZuLBivzlM8s2Dk5lXBQ" }
+  ],
   "lastUpdated": "2026-09-15"
 }
