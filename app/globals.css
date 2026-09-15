@@ -46,3 +46,38 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .kb-label {
+    @apply font-mono text-[9px] uppercase tracking-[0.18em] text-primary/70;
+  }
+  .kb-button {
+    @apply inline-flex items-center justify-center gap-1.5 border border-border px-3 py-2 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary;
+  }
+  .kb-button-primary {
+    @apply border-primary/45 bg-primary/10 text-primary hover:bg-primary/15;
+  }
+  .kb-text-preview {
+    @apply max-w-full overflow-x-auto border border-border bg-black/20 p-4 font-mono text-xs leading-relaxed text-foreground/85;
+  }
+  .kb-markdown {
+    @apply border border-border bg-card/40 px-4 py-6 text-sm leading-7 text-muted-foreground sm:px-8;
+  }
+  .kb-markdown h1 { @apply mb-5 mt-1 text-2xl font-bold tracking-tight text-foreground; }
+  .kb-markdown h2 { @apply mb-3 mt-8 border-b border-border pb-2 text-xl font-semibold text-foreground; }
+  .kb-markdown h3 { @apply mb-2 mt-6 text-base font-semibold text-foreground; }
+  .kb-markdown h4, .kb-markdown h5, .kb-markdown h6 { @apply mb-2 mt-5 font-semibold text-foreground; }
+  .kb-markdown p { @apply my-4; }
+  .kb-markdown ul { @apply my-4 list-disc space-y-1 pl-6; }
+  .kb-markdown ol { @apply my-4 list-decimal space-y-1 pl-6; }
+  .kb-markdown a { @apply text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary; }
+  .kb-markdown strong { @apply font-semibold text-foreground; }
+  .kb-markdown :not(pre) > code { @apply border border-border bg-black/25 px-1.5 py-0.5 font-mono text-xs text-primary; }
+  .kb-markdown pre { @apply my-5 max-w-full overflow-x-auto border border-border bg-black/30 p-4 font-mono text-xs leading-relaxed text-foreground/90; }
+  .kb-markdown blockquote { @apply my-5 border-l-2 border-primary/60 bg-primary/5 px-4 py-2 italic text-foreground/75; }
+  .kb-markdown hr { @apply my-8 border-border; }
+  .kb-table-wrap { @apply my-5 max-w-full overflow-x-auto; }
+  .kb-markdown table { @apply min-w-full border-collapse text-left text-xs; }
+  .kb-markdown th { @apply whitespace-nowrap border border-border bg-primary/5 px-3 py-2 font-mono uppercase tracking-wider text-primary; }
+  .kb-markdown td { @apply border border-border px-3 py-2 align-top; }
+}

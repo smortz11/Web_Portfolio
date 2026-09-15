@@ -1,0 +1,17 @@
+{
+  "title": "NSE4 Study Materials",
+  "slug": "NSE4_Study_Materials",
+  "description": "FortiGate notes, labs, and certification study material.",
+  "summary": "A growing collection of notes and reference material from my Fortinet studies.",
+  "purpose": "Organize practical study notes and labs in a format that is easy to review and share.",
+  "audience": "Students and practitioners studying FortiGate administration and network security.",
+  "prerequisites": ["Basic TCP/IP networking", "General firewall concepts"],
+  "recommendedResources": [
+    { "name": "Fortinet Training Institute", "url": "https://training.fortinet.com/" },
+    { "name": "FortiGate Administration Guide", "url": "https://docs.fortinet.com/product/fortigate" }
+  ],
+  "notes": "The initial documents are clearly marked placeholders and will be replaced with full study material.",
+  "disclaimer": "Personal study material; not official Fortinet documentation.",
+  "tags": ["Fortinet", "Networking", "Security"],
+  "lastUpdated": "2026-09-15"
+}

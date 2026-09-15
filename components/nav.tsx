@@ -17,11 +17,13 @@ const homeLinks: NavLink[] = [
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
+  { label: "Knowledge", href: "/Knowledge_Base" },
 ]
 
 const globalLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
+  { label: "Knowledge", href: "/Knowledge_Base" },
 ]
 
 export function Nav() {
@@ -61,7 +63,7 @@ export function Nav() {
                 key={link.href}
                 href={link.href}
                 className={`font-mono text-[10px] uppercase tracking-[0.15em] transition-colors hover:text-primary ${
-                  pathname === link.href ? "text-primary" : "text-muted-foreground"
+                  pathname === link.href || pathname.startsWith(`${link.href}/`) ? "text-primary" : "text-muted-foreground"
                 }`}
               >
                 {link.label}
@@ -122,7 +124,7 @@ export function Nav() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={`font-mono text-xs uppercase tracking-[0.15em] transition-colors hover:text-primary ${
-                    pathname === link.href ? "text-primary" : "text-muted-foreground"
+                    pathname === link.href || pathname.startsWith(`${link.href}/`) ? "text-primary" : "text-muted-foreground"
                   }`}
                 >
                   {link.label}
