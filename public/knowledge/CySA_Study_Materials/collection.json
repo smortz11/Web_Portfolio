@@ -1,0 +1,13 @@
+{
+  "title": "CySA+ Study Materials",
+  "slug": "CySA_Plus_Study_Materials",
+  "description": "Certification resource recommendations and tips.",
+  "tags": ["CompTIA", "Security", "Intermediate"],
+  "summary": "The Cybersecurity Analyst+ certification was one I really enjoyed. The PBQs are applicable and have students tracing malicious network traffic. I studied for this over the course of four months. Many of my study materials are gone, but I can link what I did use. NOTE: It appears that this exam is now the CS0-004, I tested during CS0-003. There may be better resources.",
+  "recommendedResources": [
+    { "name": "Jason Dion's CS0-004 Course", "url": "https://www.udemy.com/course/comptia-cysa-003/?couponCode=KEEPLEARNING"},
+    { "name": "Open-Exam-Prep CySA+", "url": "https://open-exam-prep.com/practice/comptia-cysa-plus" },
+    { "name": "TryHackMe (highly recommend)", "url": "https://tryhackme.com/"}
+  ],
+  "lastUpdated": "2026-09-16"
+}

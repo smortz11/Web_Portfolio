@@ -1,0 +1,12 @@
+{
+  "title": "Network+ Study Materials",
+  "slug": "Network_Plus_Study_Materials",
+  "description": "Certification resource recommendations and tips.",
+  "tags": ["CompTIA", "Networking", "Beginner"],
+  "summary": "The Network+ is not a certification that I hold personally, but appears to be a very strong intermediary to the CCNA. Network fundamentals will make any computer science student more informed and capable. I truly feel that networking can help any field under the CS umbrella.",
+  "recommendedResources": [
+    { "name": "Professor Messer's N10-009 Course", "url": "https://www.youtube.com/watch?v=k7IOn3TiUc8&list=PLG49S3nxzAnl_tQe3kvnmeMid0mjF8Le8"},
+    { "name": "Open-Exam-Prep Network+", "url": "https://open-exam-prep.com/practice/comptia-network-plus" }
+  ],
+  "lastUpdated": "2026-09-16"
+}

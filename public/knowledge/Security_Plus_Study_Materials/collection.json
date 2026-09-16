@@ -2,7 +2,7 @@
   "title": "Security+ Study Materials",
   "slug": "Security_Plus_Study_Materials",
   "description": "Certification resource recommendations and tips.",
-  "tags": ["CompTIA", "Security"],
+  "tags": ["CompTIA", "Security", "Beginner"],
   "summary": "The Security+ is the certification that many cybersecurity-interested people earn soon before starting their career. There are many free resources available for this. Prior to my exam, I used Professor Messer's course on YouTube and took notes daily. I recommend creating an Anki deck alongside your notes to study as well. The PBQ questions on the exam can be difficult to prepare for. I will not link it here, but there are many online shadow libraries where you could likely find practice exams.",
   "recommendedResources": [
     { "name": "Professor Messer's SY0-701 Course", "url": "https://www.youtube.com/watch?v=KiEptGbnEBc&list=PLG49S3nxzAnl4QDVqK-hOnoqcSKEIDDuv"},
