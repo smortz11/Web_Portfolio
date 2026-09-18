@@ -12,9 +12,9 @@ const experiences: ExperienceItem[] = [
     location: "Louisville, KY",
     period: "May 2026 -- Present",
     bullets: [
-      "Install, configure, and troubleshoot network hardware and software for optimal performance.",
+      "Troubleshoot network connectivity and client issues across Cisco Catalyst and Nexus environments, working with Cisco IOS and IOS XE.",
       "Prioritize ticket queues to ensure timely resolution of client issues in alignment with SLAs.",
-      "Optimize network security measures while maintaining efficient communication links.",
+      "Work with FortiGate, FortiManager, and FortiAnalyzer, using Elastic and Wireshark for monitoring and analysis.",
     ],
   },
   {

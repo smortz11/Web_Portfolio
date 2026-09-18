@@ -8,8 +8,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains-mono' })
 
 export const metadata: Metadata = {
-  title: 'Andrew Swartz | Cybersecurity & Computer Science',
-  description: 'Portfolio of Andrew Swartz - Computer Science & Mathematics, Cybersecurity Professional',
+  title: 'Andrew Swartz | Network Engineer',
+  description: 'Portfolio of Andrew Swartz - Network Engineer focused on network infrastructure, troubleshooting, and secure connectivity.',
 }
 
 export default function RootLayout({

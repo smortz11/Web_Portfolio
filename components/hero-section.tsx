@@ -25,14 +25,15 @@ export function HeroSection() {
           Andrew Swartz
         </h1>
         <p className="mt-2 font-mono text-sm text-primary tracking-wide">
-          Cybersecurity & Computer Science
+          Network Engineer
         </p>
         <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          B.S. in Computer Science and Mathematics from Indiana University
-          Southeast (4.0 GPA). Currently pursuing a Master{"'"}s in Cybersecurity
-          at Georgia Tech. Focused on network defense, secure systems, and
-          incident response. Published IEEE author (x2) and Top 1% NCL
-          competitor.
+          Junior Network Engineer at Volta Inc and Cisco CCNA holder, focused
+          on configuring and troubleshooting network infrastructure. I build
+          on that experience through hands-on networking and virtualization
+          in my homelab. B.S. in Computer Science and Mathematics from Indiana
+          University Southeast (4.0 GPA), currently pursuing a Master{"'"}s in
+          Cybersecurity at Georgia Tech. Published IEEE author (x2).
         </p>
         {/* Contact links */}
         <div className="mt-6 flex flex-wrap items-center gap-4">

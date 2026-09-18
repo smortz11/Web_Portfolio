@@ -5,33 +5,24 @@ interface SkillGroup {
 
 const skills: SkillGroup[] = [
   {
-    category: "Programming & Scripting",
-    items: ["Python", "SQL", "Bash", "PowerShell", "Java"],
+    category: "Network Engineering",
+    items: ["Network Troubleshooting", "VLANs", "VPNs", "Cisco IOS / IOS XE", "Cisco Catalyst", "Cisco Nexus"],
   },
   {
-    category: "Security Tools",
-    items: [
-      "Wireshark",
-      "Nmap",
-      "Metasploit",
-      "Burp Suite",
-      "Splunk",
-      "Snort",
-      "Zeek",
-      "Nessus",
-      "OpenVAS",
-    ],
+    category: "Firewalls, Monitoring & Analysis",
+    items: ["FortiGate", "FortiManager", "FortiAnalyzer", "Elastic", "Wireshark"],
+  },
+  {
+    category: "Scripting & Automation",
+    items: ["Python", "Bash", "PowerShell"],
+  },
+  {
+    category: "Lab & Study Tools",
+    items: ["Cisco Packet Tracer", "Cisco ASA", "pfSense", "Pi-hole", "Proxmox"],
   },
   {
     category: "Platforms & Systems",
-    items: [
-      "Linux (Ubuntu, Debian)",
-      "Windows (10/11)",
-      "Active Directory",
-      "Proxmox",
-      "VMware",
-      "VirtualBox",
-    ],
+    items: ["Linux (Ubuntu, Debian)", "Windows (10/11)", "Active Directory", "VMware", "VirtualBox"],
   },
 ]
 

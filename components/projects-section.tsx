@@ -11,10 +11,10 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Cybersecurity Homelab",
-    tech: "Proxmox, Splunk, Pi-hole, Cisco ASA, Cisco Catalyst",
+    title: "Networking & Infrastructure Homelab",
+    tech: "Cisco Catalyst, Cisco ASA, Proxmox, Pi-hole, Splunk",
     description: [
-      "Built and manage a virtualized environment using Proxmox for security testing and network monitoring.",
+      "Built and manage a Proxmox environment for network monitoring, virtualization, and hands-on lab work.",
       "Configured Cisco ASA firewall and Cisco Catalyst switch to secure and segment network traffic.",
       "Deployed Splunk instances for SIEM demonstration and log correlation.",
       "Hosted secure website and configured Pi-hole for network-wide ad and malware blocking.",

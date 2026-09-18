@@ -29,8 +29,8 @@ interface Project {
 const projects: Project[] = [
   {
     id: "homelab",
-    title: "Cybersecurity Homelab",
-    subtitle: "Virtualized security environment for testing and monitoring",
+    title: "Networking & Infrastructure Homelab",
+    subtitle: "Network segmentation, monitoring, and virtualized infrastructure",
     date: "Ongoing",
     status: "ongoing",
     tech: [
@@ -42,9 +42,9 @@ const projects: Project[] = [
       "Ubuntu Server",
     ],
     summary:
-      "A full-stack virtualized environment for hands-on security testing, SIEM demonstration, and network segmentation.",
+      "A virtualized homelab for network segmentation, inter-VLAN routing, DNS filtering, and monitoring, with security testing and log analysis.",
     details: [
-      "Built and manage a virtualized environment using Proxmox for security testing and network monitoring.",
+      "Built and manage a Proxmox environment for network monitoring, virtualization, and hands-on lab work.",
       "Configured Cisco ASA firewall and Cisco Catalyst switch to secure and segment network traffic across multiple VLANs.",
       "Deployed Splunk instances for SIEM demonstration and log correlation, ingesting firewall, DNS, and system logs.",
       "Hosted a secure website behind a reverse proxy and configured Pi-hole for network-wide ad and malware blocking.",
