@@ -19,7 +19,7 @@ import { GeometricBackground } from "@/components/geometric-bg"
  * =============================================
  */
 const certifications = [
-  { label: "Cisco CCNA", value: 100, subtitle: "Earned Aug 2026" },
+  { label: "Cisco Certified Network Associate (CCNA)", value: 100, subtitle: "Earned Aug 2026" },
   { label: "CompTIA Security+", value: 100, subtitle: "Earned Jun 2025" },
   { label: "CompTIA CySA+", value: 100, subtitle: "Earned Sep 2025" },
   { label: "Fortinet NSE 4", value: 31, subtitle: "In Progress" },

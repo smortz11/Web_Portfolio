@@ -28,7 +28,7 @@ export function HeroSection() {
           Network Engineer
         </p>
         <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          Junior Network Engineer at Volta Inc and Cisco CCNA holder, focused
+          Junior Network Engineer at Volta Inc and CCNA holder, focused
           on configuring and troubleshooting network infrastructure. I build
           on that experience through hands-on networking and virtualization
           in my homelab. B.S. in Computer Science and Mathematics from Indiana
