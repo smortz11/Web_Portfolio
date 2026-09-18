@@ -172,7 +172,7 @@ diagnose test authserver radius <server_name> <scheme> <user> <password>
 
 ```
 config user setting
-set auth-on-demaind <always|implicitly>
+	set auth-on-demaind <always|implicitly>
 ```
 
 - Provides more granular control

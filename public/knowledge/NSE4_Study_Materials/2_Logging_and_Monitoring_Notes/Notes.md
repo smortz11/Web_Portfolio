@@ -128,7 +128,7 @@ Workflow:
 
 ```
 configure log fortianalyzer setting
-set upload-option [store-and-upload |realtime/1-minute/5-minute]
+	set upload-option [store-and-upload |realtime/1-minute/5-minute]
 ```
 
 Note: `store-and-upload` is only available on FortiGates with an internal hard drive
@@ -139,11 +139,11 @@ Note: `store-and-upload` is only available on FortiGates with an internal hard d
 
 ```
 config log fortianalyzer setting
-set status enable
-set server "10.0.13.125"
-set serial "FAZ-VMTH24012176"
-set enc-algorithm high-medium
-set upload-option realtime
+	set status enable
+	set server "10.0.13.125"
+	set serial "FAZ-VMTH24012176"
+	set enc-algorithm high-medium
+	set upload-option realtime
 end
 ```
 
