@@ -18,7 +18,7 @@ const plans: Plan[] = [
     timeline: "2028",
   },
   {
-    title: "Earn the Cisco CCNP",
+    title: "Earn the CCNP",
     description:
       "The CCNP is the next logical step for CCNA holders and network engineers. This will teach me how to be a more thorough network architect.",
     timeline: "2027",

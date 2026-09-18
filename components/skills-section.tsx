@@ -6,11 +6,11 @@ interface SkillGroup {
 const skills: SkillGroup[] = [
   {
     category: "Network Engineering",
-    items: ["Network Troubleshooting", "VLANs", "VPNs", "Cisco IOS / IOS XE", "Cisco Catalyst", "Cisco Nexus"],
+    items: ["Network Troubleshooting", "VLANs", "VPNs", "Cisco IOS / IOS XE", "Cisco Catalyst", "Cisco Nexus", "Ubiquiti", "FortiSwitch"],
   },
   {
-    category: "Firewalls, Monitoring & Analysis",
-    items: ["FortiGate", "FortiManager", "FortiAnalyzer", "Elastic", "Wireshark"],
+    category: "Network Security, Monitoring & Analysis",
+    items: ["FortiGate", "FortiManager", "FortiAnalyzer", "Cisco FMC", "Cisco FTD", "Cisco ISE", "SolarWinds", "Elastic", "Wireshark"],
   },
   {
     category: "Scripting & Automation",
@@ -18,11 +18,11 @@ const skills: SkillGroup[] = [
   },
   {
     category: "Lab & Study Tools",
-    items: ["Cisco Packet Tracer", "Cisco ASA", "pfSense", "Pi-hole", "Proxmox"],
+    items: ["Cisco Packet Tracer", "Cisco ASA", "pfSense", "Pi-hole"],
   },
   {
     category: "Platforms & Systems",
-    items: ["Linux (Ubuntu, Debian)", "Windows (10/11)", "Active Directory", "VMware", "VirtualBox"],
+    items: ["Linux (Ubuntu, Debian)", "Windows (10/11)", "Active Directory", "Proxmox", "VMware", "VirtualBox"],
   },
 ]
 
