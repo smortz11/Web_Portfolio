@@ -1,5 +1,5 @@
 ---
-title: "1. System and Network Settings \u2014 Notes"
+title: "1. System and Network Settings"
 slug: "1_System_and_Network_Settings_Notes"
 description: "NSE4 study notes: System and Network Settings"
 date: "2026-09-18"

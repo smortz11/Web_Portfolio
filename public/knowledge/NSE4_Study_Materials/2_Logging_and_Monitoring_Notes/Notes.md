@@ -1,5 +1,5 @@
 ---
-title: "2. Logging and Monitoring \u2014 Notes"
+title: "2. Logging and Monitoring"
 slug: "2_Logging_and_Monitoring_Notes"
 description: "NSE4 study notes: Logging and Monitoring"
 date: "2026-09-18"

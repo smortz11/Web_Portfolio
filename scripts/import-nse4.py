@@ -61,10 +61,10 @@ for title, body in notes.items():
     if title.startswith('0.'):
         body = '\n'.join('- ' + line for line in body.splitlines() if line.strip())
     resource_slug = slug(title)
-    metadata = {'title': title + (' — Notes' if not title.startswith('0.') else ''),
+    metadata = {'title': title,
                 'slug': resource_slug, 'description': 'NSE4 study notes: ' + re.sub(r'^\d+\.\s*', '', title),
                 'date': args.date, 'tags': ['Fortinet', 'NSE4', 'Notes']}
-    frontmatter = '\n'.join(f'{k}: {json.dumps(v)}' for k, v in metadata.items())
+    frontmatter = '\n'.join(f'{k}: {json.dumps(v, ensure_ascii=False)}' for k, v in metadata.items())
     outputs[resource_slug] = f'---\n{frontmatter}\n---\n\n{body}\n'
 
 # All references have passed validation; publish only referenced assets.

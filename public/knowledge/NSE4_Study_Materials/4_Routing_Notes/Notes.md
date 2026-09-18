@@ -1,5 +1,5 @@
 ---
-title: "4. Routing \u2014 Notes"
+title: "4. Routing"
 slug: "4_Routing_Notes"
 description: "NSE4 study notes: Routing"
 date: "2026-09-18"

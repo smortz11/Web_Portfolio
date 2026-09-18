@@ -1,5 +1,5 @@
 ---
-title: "5. Firewall Authentication \u2014 Notes"
+title: "5. Firewall Authentication"
 slug: "5_Firewall_Authentication_Notes"
 description: "NSE4 study notes: Firewall Authentication"
 date: "2026-09-18"

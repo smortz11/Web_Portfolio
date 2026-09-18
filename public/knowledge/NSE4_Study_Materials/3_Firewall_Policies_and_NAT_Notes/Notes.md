@@ -1,5 +1,5 @@
 ---
-title: "3. Firewall Policies and NAT \u2014 Notes"
+title: "3. Firewall Policies and NAT"
 slug: "3_Firewall_Policies_and_NAT_Notes"
 description: "NSE4 study notes: Firewall Policies and NAT"
 date: "2026-09-18"
