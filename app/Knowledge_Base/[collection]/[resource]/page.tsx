@@ -48,7 +48,7 @@ export default async function ResourcePage({ params }: Props) {
 function Meta({ label, value }: { label: string; value: string }) { return <div className="min-w-0"><dt className="kb-label">{label}</dt><dd className="mt-1 break-all font-mono text-[10px] text-foreground/80">{value}</dd></div> }
 
 function Preview({ resource }: { resource: KnowledgeResource }) {
-  if (resource.previewKind === "markdown") return <MarkdownRenderer source={resource.content ?? ""} />
+  if (resource.previewKind === "markdown") return <MarkdownRenderer source={resource.content ?? ""} basePath={resource.downloadPath} />
   if (resource.previewKind === "text") return <pre className="kb-text-preview"><code>{resource.content}</code></pre>
   if (resource.previewKind === "image") return <div className="relative min-h-72 overflow-hidden border border-border bg-black/20"><Image src={resource.downloadPath} alt={resource.title} fill className="object-contain" unoptimized={resource.extension === ".gif"} /></div>
   if (resource.previewKind === "pdf") return <iframe src={resource.downloadPath} title={`${resource.title} PDF preview`} className="h-[70vh] min-h-96 w-full border border-border bg-white" />

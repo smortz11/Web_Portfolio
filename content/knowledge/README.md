@@ -89,3 +89,20 @@ npm run build
 ```
 
 Visit the landing page, collection URL, and direct resource URL. Also test one invalid URL and the layout at a narrow viewport. After committing and pushing through your normal workflow, rebuild production; no database migration or CMS publishing step is required.
+
+## Update NSE4 notes from Obsidian
+
+Provide an NSE4 notes ZIP and an Images ZIP, keeping original filenames. Run:
+
+```shell
+python3 scripts/import-nse4.py /path/to/NSE4.zip /path/to/Images.zip
+```
+
+The importer validates image and note references before writing, publishes only
+referenced images, converts Obsidian embeds and links to standard Markdown, and
+marks empty chapters as pending in the table of contents. Notes have separate
+resource directories so existing labs are preserved. Reimporting updates the same
+resources. Old resources/assets are retained: review explicitly requested deletions
+separately. Use `--date YYYY-MM-DD` to specify the publication date.
+
+Review the diff, run TypeScript and production build checks, then commit and push.
