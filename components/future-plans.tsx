@@ -24,9 +24,9 @@ const plans: Plan[] = [
     timeline: "2027",
   },
   {
-    title: "Develop Palo Alto Experience",
+    title: "Develop BGP Experience",
     description:
-      "My job has given me extensive Cisco and Fortinet exposure, I am taking the incentive to learn more about Palo with a lab kit.",
+      "BGP is a protocol that I run into almost daily, and the CCNA did not cover it to the depths I would prefer. I am preparing by watching lessons over BGP configuration and troubleshooting.",
     timeline: "Ongoing",
   },
 ]
