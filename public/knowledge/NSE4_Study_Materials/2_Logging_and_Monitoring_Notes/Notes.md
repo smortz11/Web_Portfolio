@@ -2,7 +2,8 @@
 title: "2. Logging and Monitoring"
 slug: "2_Logging_and_Monitoring_Notes"
 description: "NSE4 study notes: Logging and Monitoring"
-date: "2026-09-18"
+date: "2026-10-07"
+folder: "Notes"
 tags: ["Fortinet", "NSE4", "Notes"]
 ---
 
@@ -25,21 +26,21 @@ tags: ["Fortinet", "NSE4", "Notes"]
 - Security logs record security events, such as virus attacks and intrusion attempts, based on the security profile type (log type = utm)
 	- If no security logs exist, the menu item does not appear in the GUI
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260915113814.png)
+![Study diagram](/knowledge-assets/NSE4/2.%20Logging%20and%20Monitoring%20-%2001.png)
 
 
 ### Log Severity Levels
 - Each log entry includes a log level (also known as priority level) that ranges in order of importance
 	- 0 = high importance, 6 = low importance
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260915113930.png)
+![Study diagram](/knowledge-assets/NSE4/2.%20Logging%20and%20Monitoring%20-%2002.png)
 
 ## Log Message Layout
 - Log Header (similar in all logs)
 	- Type and subtype = Name of log file
 	- Level = severity level
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260915114007.png)
+![Study diagram](/knowledge-assets/NSE4/2.%20Logging%20and%20Monitoring%20-%2003.png)
 
 - Log body (varies by log type)
 	- policyid = Firewall policy applied to session
@@ -48,7 +49,7 @@ tags: ["Fortinet", "NSE4", "Notes"]
 	- action = Action taken by FortiGate
 	- msg = Reason for the action
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260915114056.png)
+![Study diagram](/knowledge-assets/NSE4/2.%20Logging%20and%20Monitoring%20-%2004.png)
 
 ### Log Storage - Local
 - To store logs locally on FortiGate, you must enable disk logging

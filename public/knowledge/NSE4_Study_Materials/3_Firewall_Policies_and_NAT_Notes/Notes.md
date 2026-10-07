@@ -2,7 +2,8 @@
 title: "3. Firewall Policies and NAT"
 slug: "3_Firewall_Policies_and_NAT_Notes"
 description: "NSE4 study notes: Firewall Policies and NAT"
-date: "2026-09-18"
+date: "2026-10-07"
+folder: "Notes"
 tags: ["Fortinet", "NSE4", "Notes"]
 ---
 
@@ -72,7 +73,7 @@ config firewall policy
 	- System -> Feature Visibility -> Multiple Interface Policies to toggle
 - Can be made visible in the GUI using above
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916113637.png)![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916113646.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2001.png)![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2002.png)
 
 ### Matching by Source
 - Must specify at least one source (ISDB)
@@ -97,16 +98,16 @@ config firewall policy
 - Allows users to define ISDB objects based on a country, region, and city
 - Objects can be used in firewall policies for more granular control over the location of the parent ISDB object
 - Policy & Objects -> Internet Service Database
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916114106.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2003.png)
 
 ### Example - Matching Policy by Source
 - Matches by a source address, user
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916114236.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2004.png)
 
 - Source as ISDB objects
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916114251.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2005.png)
 
 ### Matching by Destination
 - Like source, destination criteria can use:
@@ -184,7 +185,7 @@ config firewall policy
 ### Moving Policies by ID
 - On the GUI, move by ID
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916115157.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2006.png)
 
 - I guess this just lets us move it without lots of drag / drop
 
@@ -276,17 +277,17 @@ end
 		- Translates destination IP address and destination port
 		- Requires VIP object on firewall policy
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916122421.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2007.png)
 
 ### Firewall Policy SNAT
 - There are two ways to use SNAT traffic:
 	- Use the outgoing interface address
 	- Using a dynamic IP pool
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916122541.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2008.png)
 
 ### Firewall Policy SNAT Using the Outgoing Interface
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916125427.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2009.png)
 
 ### IP Pools
 - IP pools define a single IP address or a range of IP addresses to be used as the source address for the duration of the session
@@ -300,7 +301,7 @@ end
 
 ### IP Pool Type - Overload
 - A many - to - one or many - to - few relation is used.
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916130000.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2010.png)
 
 ### IP Pool Type - One-to-One
 - Assigns an IP pool address to an internal host on a first-come, first-served basis
@@ -323,13 +324,13 @@ end
 	- Port Forwarding then allows us to do it on the port as well
 
 ### VIP Example - Static NAT - Incoming Connection
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916130617.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2011.png)
 
 ### VIP Example - Static NAT - Outgoing Connection
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916130752.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2012.png)
 
 ### VIP Example - Port Forwarding - Incoming Connection
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916131004.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2013.png)
 
 ### VIP - Matching Policies
 - Default behavior: Firewall address objects match VIPs
@@ -337,7 +338,7 @@ end
 	- The CLI command `match-vip` is available only for firewall policies with the action set to DENY
 
 - VIP policy (WAN to LAN)
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916131322.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2014.png)
 
 - CLI configuration
 ```
@@ -354,7 +355,7 @@ end
 - Enabled by default; instructs FortiGate to reply to ARP requests for external address
 - Sometimes required to overcome routing misconfigurations
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260916131906.png)
+![Study diagram](/knowledge-assets/NSE4/3.%20Firewall%20Policies%20and%20NAT%20-%2015.png)
 
 - Pretty much, allows external clients to ARP for VIPs
 

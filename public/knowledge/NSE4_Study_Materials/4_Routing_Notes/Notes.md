@@ -2,7 +2,8 @@
 title: "4. Routing"
 slug: "4_Routing_Notes"
 description: "NSE4 study notes: Routing"
-date: "2026-09-18"
+date: "2026-10-07"
+folder: "Notes"
 tags: ["Fortinet", "NSE4", "Notes"]
 ---
 
@@ -47,7 +48,7 @@ tags: ["Fortinet", "NSE4", "Notes"]
 	- Visible from the CLI with the command `get router info kernel`
 
 ### Route Lookup Process
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260917095020.png)
+![Study diagram](/knowledge-assets/NSE4/4.%20Routing%20-%2001.png)
 
 ### Static Routes
 - Configured *manually*, by an administrator
@@ -97,7 +98,7 @@ get router info routing-table all
 	- FortiGate keeps the route that was learned last
 
 - Default distance per route type:
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260917101021.png)
+![Study diagram](/knowledge-assets/NSE4/4.%20Routing%20-%2002.png)
 
 ### Metric
 - Tiebreaker for same-protocol duplicate dynamic routes
@@ -120,7 +121,7 @@ get router info routing-table all
 get router info routing-table all
 ```
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260917101334.png)
+![Study diagram](/knowledge-assets/NSE4/4.%20Routing%20-%2003.png)
 
 ### GUI Route Lookup Tool
 - Lookup route by:
@@ -225,4 +226,4 @@ end
 	- FortiGate tracks the cumulative number of bytes of the member
 	- The higher the member weight, the higher the target volume, the more traffic is sent to it
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260917123446.png)
+![Study diagram](/knowledge-assets/NSE4/4.%20Routing%20-%2004.png)

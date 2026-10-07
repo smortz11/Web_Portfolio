@@ -27,7 +27,10 @@ with zipfile.ZipFile(args.notes_zip) as archive:
             title = Path(name).stem
             if title in notes:
                 raise ValueError(f'Duplicate note: {title}')
-            notes[title] = archive.read(name).decode('utf-8-sig').strip()
+            source = archive.read(name).decode('utf-8-sig').replace('\r\n', '\n')
+            # Vault navigation metadata is private to Obsidian, not website content.
+            source = re.sub(r'\A---\n.*?\n---(?:\n|$)', '', source, count=1, flags=re.S)
+            notes[title] = source.strip()
 
 with zipfile.ZipFile(args.images_zip) as archive:
     images = {}
@@ -44,13 +47,13 @@ for title, body in notes.items():
     if not body:
         continue
     def image(match):
-        name = match[1]
+        name = Path(match[1].split('|', 1)[0]).name
         if name not in images:
             raise ValueError(f'{title}: missing image {name}')
         used.add(name)
         return f'![Study diagram](/knowledge-assets/NSE4/{quote(name)})'
     def link(match):
-        target = match[1]
+        target = Path(match[1].split('|', 1)[0]).stem if match[1].endswith('.md') else Path(match[1].split('|', 1)[0]).name
         if target not in notes:
             raise ValueError(f'{title}: unknown note {target}')
         label = re.sub(r'^\d+\.\s*', '', target)
@@ -63,7 +66,7 @@ for title, body in notes.items():
     resource_slug = slug(title)
     metadata = {'title': title,
                 'slug': resource_slug, 'description': 'NSE4 study notes: ' + re.sub(r'^\d+\.\s*', '', title),
-                'date': args.date, 'tags': ['Fortinet', 'NSE4', 'Notes']}
+                'date': args.date, 'folder': 'Notes', 'tags': ['Fortinet', 'NSE4', 'Notes']}
     frontmatter = '\n'.join(f'{k}: {json.dumps(v, ensure_ascii=False)}' for k, v in metadata.items())
     outputs[resource_slug] = f'---\n{frontmatter}\n---\n\n{body}\n'
 

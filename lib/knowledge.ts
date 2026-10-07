@@ -9,6 +9,12 @@ export interface RecommendedResource {
   description?: string
 }
 
+export interface KnowledgeFolder {
+  slug: string
+  title: string
+  description: string
+}
+
 export interface KnowledgeCollection {
   title: string
   slug: string
@@ -22,6 +28,7 @@ export interface KnowledgeCollection {
   disclaimer?: string
   tags?: string[]
   lastUpdated?: string
+  folders?: KnowledgeFolder[]
   resourceCount: number
 }
 
@@ -32,6 +39,7 @@ export interface KnowledgeResource {
   slug: string
   description: string
   date?: string
+  folder?: string
   tags: string[]
   filename: string
   extension: string
@@ -48,6 +56,7 @@ type ResourceMetadata = {
   slug?: string
   description?: string
   date?: string
+  folder?: string
   tags?: string[]
   file?: string
 }
@@ -122,8 +131,8 @@ function parseFrontmatter(source: string): { data: ResourceMetadata; body: strin
         }
       }
       data.tags = tags
-    } else if (["title", "slug", "description", "date"].includes(key)) {
-      data[key as "title" | "slug" | "description" | "date"] = parseScalar(rawValue)
+    } else if (["title", "slug", "description", "date", "folder"].includes(key)) {
+      data[key as "title" | "slug" | "description" | "date" | "folder"] = parseScalar(rawValue)
     }
   }
   return { data, body: normalized.slice(end + 5).trimStart() }
@@ -175,6 +184,7 @@ async function loadResource(collectionSlug: string, directoryName: string): Prom
     slug,
     description: combined.description ?? "Downloadable technical resource.",
     date: combined.date,
+    folder: combined.folder,
     tags: Array.isArray(combined.tags) ? combined.tags.filter((tag): tag is string => typeof tag === "string") : [],
     filename,
     ...details,

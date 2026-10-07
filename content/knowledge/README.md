@@ -106,3 +106,17 @@ resources. Old resources/assets are retained: review explicitly requested deleti
 separately. Use `--date YYYY-MM-DD` to specify the publication date.
 
 Review the diff, run TypeScript and production build checks, then commit and push.
+
+## Folders within a collection
+
+Define `folders` in `collection.json` as an array of objects with `slug`, `title`,
+and `description`. These appear as expandable folders, including when empty.
+Assign a resource with `folder: "Notes"` in Markdown frontmatter or
+`"folder": "Lab_Templates"` in its `metadata.json`. Resources without an assigned
+folder (such as the NSE4 Anki deck) appear at the collection's top level.
+Files retain their existing resource directories and URLs.
+
+NSE4 uses `Notes`, `Lab_Templates`, and `Completed_Labs`. Put future completed
+writeups in their own resource directories with `folder: "Completed_Labs"`.
+The importer assigns all imported notes to `Notes`, removes Obsidian-only
+frontmatter, and supports image references with vault folder prefixes.

@@ -1,3 +1,4 @@
+import { Folder } from "lucide-react"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { KnowledgeBreadcrumbs, KnowledgeHeader, ResourceCard, TagList } from "@/components/knowledge/knowledge-ui"
@@ -21,6 +22,8 @@ export default async function CollectionPage({ params }: Props) {
   const collection = await getCollection(slug)
   if (!collection) notFound()
   const resources = await getResources(collection.slug)
+  const folders = collection.folders ?? []
+  const unfiled = resources.filter((resource) => !folders.some((folder) => folder.slug === resource.folder))
 
   return <>
     <KnowledgeBreadcrumbs collection={collection} />
@@ -41,7 +44,23 @@ export default async function CollectionPage({ params }: Props) {
       <div className="mt-6 flex flex-wrap items-end justify-between gap-4 border-t border-border pt-4"><TagList tags={collection.tags} />{collection.lastUpdated && <p className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">Updated {formatKnowledgeDate(collection.lastUpdated)}</p>}</div>
     </section>
     <div className="mb-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground"><span>Resources</span><span>{resources.length} file{resources.length === 1 ? "" : "s"}</span></div>
-    {resources.length ? <section className="grid gap-3">{resources.map((resource) => <ResourceCard key={resource.slug} collectionSlug={collection.slug} resource={resource} />)}</section> : <div className="border border-dashed border-border px-5 py-12 text-center"><p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">[ EMPTY DIRECTORY ]</p><p className="mt-2 text-xs text-muted-foreground">Resources will be added here as they become available.</p></div>}
+    <section className="grid gap-3" aria-label="Collection resources">
+      {folders.map((folder) => {
+        const entries = resources.filter((resource) => resource.folder === folder.slug)
+          .sort((a, b) => a.title.localeCompare(b.title, undefined, { numeric: true }))
+        return <details key={folder.slug} id={folder.slug} className="group border border-border bg-card/45">
+          <summary className="cursor-pointer p-5 marker:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
+            <span className="inline-flex items-center gap-3 align-middle"><Folder aria-hidden="true" className="h-5 w-5 text-primary" /><span className="font-semibold">{folder.title}</span><span className="font-mono text-xs text-muted-foreground">{entries.length} file{entries.length === 1 ? "" : "s"}</span></span>
+            <span className="mt-2 block text-xs text-muted-foreground">{folder.description}</span>
+          </summary>
+          <div className="grid gap-3 border-t border-border p-3 sm:p-5">
+            {entries.length ? entries.map((resource) => <ResourceCard key={resource.slug} collectionSlug={collection.slug} resource={resource} />) : <p className="py-6 text-center text-sm text-muted-foreground">No {folder.title.toLowerCase()} added yet.</p>}
+          </div>
+        </details>
+      })}
+      {unfiled.map((resource) => <ResourceCard key={resource.slug} collectionSlug={collection.slug} resource={resource} />)}
+      {!resources.length && !folders.length && <div className="border border-dashed border-border px-5 py-12 text-center"><p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">[ EMPTY DIRECTORY ]</p><p className="mt-2 text-xs text-muted-foreground">Resources will be added here as they become available.</p></div>}
+    </section>
   </>
 }
 

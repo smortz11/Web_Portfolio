@@ -2,7 +2,8 @@
 title: "5. Firewall Authentication"
 slug: "5_Firewall_Authentication_Notes"
 description: "NSE4 study notes: Firewall Authentication"
-date: "2026-09-18"
+date: "2026-10-07"
+folder: "Notes"
 tags: ["Fortinet", "NSE4", "Notes"]
 ---
 
@@ -54,7 +55,7 @@ tags: ["Fortinet", "NSE4", "Notes"]
 - Binding is the operation in which the LDAP server authenticates the user
 
 ### LDAP Structure
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260918135225.png)
+![Study diagram](/knowledge-assets/NSE4/5.%20Firewall%20Authentication%20-%2001.png)
 - dc = domain component
 	- abc.com becomes dc=abc,dc=come
 - ou = organizational unit
@@ -66,12 +67,12 @@ tags: ["Fortinet", "NSE4", "Notes"]
 
 ### Configuring an LDAP Server on FortiGate
 - User & Authentication -> LDAP Servers
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260918135434.png)
+![Study diagram](/knowledge-assets/NSE4/5.%20Firewall%20Authentication%20-%2002.png)
 
 ### RADIUS Overview
 - RADIUS is a standard protocol that provides AAA services
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260918135617.png)
+![Study diagram](/knowledge-assets/NSE4/5.%20Firewall%20Authentication%20-%2003.png)
 
 
 ### Configuring a RADIUS Server on FortiGate
@@ -110,7 +111,7 @@ diagnose test authserver radius <server_name> <scheme> <user> <password>
 
 ### FortiTokens
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260918141032.png)
+![Study diagram](/knowledge-assets/NSE4/5.%20Firewall%20Authentication%20-%2004.png)
 
 ### Assigning a FortiToken to a User
 - User & Authentication -> FortiTokens -> Create new
@@ -148,12 +149,12 @@ diagnose test authserver radius <server_name> <scheme> <user> <password>
 	- Hostname resolution is ofter required by the application layer protocol (HTTP/HTTPS/FTP/Telnet) that is used to authenticate
 	- DNS service must be explicitly listed as a service in the policy
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260918141718.png)
+![Study diagram](/knowledge-assets/NSE4/5.%20Firewall%20Authentication%20-%2005.png)
 
 ### Mixing Policies
 - Enabling authentication in policies doesn't always mean users must actively authenticate. An open policy at the end of the list can allow passive or no-prompt authentication
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260918142014.png)
+![Study diagram](/knowledge-assets/NSE4/5.%20Firewall%20Authentication%20-%2006.png)
 
 - Three options:
 	1. Enable authentication on every policy that could match the traffic
@@ -172,7 +173,7 @@ diagnose test authserver radius <server_name> <scheme> <user> <password>
 
 ```
 config user setting
-	set auth-on-demaind <always|implicitly>
+set auth-on-demaind <always|implicitly>
 ```
 
 - Provides more granular control

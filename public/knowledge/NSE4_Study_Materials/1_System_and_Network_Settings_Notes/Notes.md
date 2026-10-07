@@ -2,7 +2,8 @@
 title: "1. System and Network Settings"
 slug: "1_System_and_Network_Settings_Notes"
 description: "NSE4 study notes: System and Network Settings"
-date: "2026-09-18"
+date: "2026-10-07"
+folder: "Notes"
 tags: ["Fortinet", "NSE4", "Notes"]
 ---
 
@@ -57,7 +58,7 @@ tags: ["Fortinet", "NSE4", "Notes"]
 		- PPPoE
 
 - Network -> Interfaces
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260908122215.png)
+![Study diagram](/knowledge-assets/NSE4/1.%20System%20and%20Network%20Settings%20-%2001.png)
 
 ## Interface Role Compared to Alias
 - Role defines interface settings typically grouped together:
@@ -71,11 +72,11 @@ tags: ["Fortinet", "NSE4", "Notes"]
 - Alias is a friendly descriptor for the interface
 	- Used in a list of policies to label interfaces by purpose
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260908122339.png)
+![Study diagram](/knowledge-assets/NSE4/1.%20System%20and%20Network%20Settings%20-%2002.png)
 
 ## FortiGate as a DHCP Server
 - Network -> Interfaces
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260908122434.png)
+![Study diagram](/knowledge-assets/NSE4/1.%20System%20and%20Network%20Settings%20-%2003.png)
 
 ## Static Gateway
 - Set a default route or configure a static one
@@ -96,7 +97,7 @@ tags: ["Fortinet", "NSE4", "Notes"]
 - System -> Admin Profiles
 - super_admin is full access, encompassing all others
 
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260908122836.png)
+![Study diagram](/knowledge-assets/NSE4/1.%20System%20and%20Network%20Settings%20-%2004.png)
 
 ## Administrative Access - Trusted Sources
 - System -> Administrators
@@ -147,7 +148,7 @@ diagnose autoupdate versions
 - This will show the databases downloaded onto the device
 
 ## Life of a Packet - Initial Session Packets
-![Study diagram](/knowledge-assets/NSE4/Pasted%20image%2020260908123915.png)
+![Study diagram](/knowledge-assets/NSE4/1.%20System%20and%20Network%20Settings%20-%2005.png)
 
 ## Review
 - Configure FortiGate using the factory default settings
