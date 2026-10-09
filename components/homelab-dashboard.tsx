@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import { RefreshCw, Server, Container, Cpu, HardDrive, Clock, AlertCircle, Gauge } from "lucide-react"
+import { RefreshCw, Server, Container, Cpu, HardDrive, Clock, Gauge } from "lucide-react"
 
 // ─────────────────────────────────────────────
 // Types
@@ -147,11 +147,10 @@ function NodeCard({ node }: { node: NodeData }) {
         <StatusDot status={node.status} />
       </div>
 
-      {node.error ? (
-        <div className="flex items-center gap-2 text-red-500 text-xs">
-          <AlertCircle className="h-3 w-3" />
-          {node.error}
-        </div>
+      {node.status === "offline" || node.error ? (
+        <p className="text-xs text-muted-foreground">
+          Node offline — metrics unavailable
+        </p>
       ) : (
         <>
           <div className="space-y-3">
