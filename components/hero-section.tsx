@@ -43,7 +43,7 @@ export function HeroSection() {
             label="Email"
           />
           <ContactLink
-            href="https://linkedin.com/in/andrew-swartz-cs"
+            href="https://www.linkedin.com/in/aswartzcs/"
             icon={<Linkedin className="h-4 w-4" />}
             label="LinkedIn"
           />
